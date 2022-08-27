@@ -53,7 +53,7 @@ for k=1:length(t)
     
     %% Step 3: Take a Snapshot
     %Save the frame
-    movieVector(k) = getframe;
+    movieVector(k) = getframe(figh, [10 10 520 400]);
       % movieVector(k) = getframe(figh, [10 10 520 400]); %manually specify getframe region
     
     %% Step 4: Advance Time
@@ -62,12 +62,15 @@ end
 
 %% Step 5: Save Movie
 %Create a VideoWriter object and set properties
-myWriter = VideoWriter('Helicoide.mp4', 'MPEG-4');            %create an .avi file
+myWriter = VideoWriter('Helicoide', 'MPEG-4');            %create an .avi file
 myWriter.FrameRate = 20;
 
 %Open the VideoWriter object, write the movie, and close the file
 open(myWriter);
 writeVideo(myWriter, movieVector);
 close(myWriter);
+
+%% Step 6: Export figure
+exportgraphics(figh,'Helicoide.png')
 
 disp('DONE!')
