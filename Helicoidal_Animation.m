@@ -16,7 +16,7 @@ clear, clc, close all;
 
 %% Step 1: Generate Data
 %Animate a point moving along a 3D parametric curve
-t = linspace(0,4*pi, 500);
+t = linspace(0,4*pi, 200);
 x = 5*cos(t);
 y = 2*sin(t);
 z = t;
